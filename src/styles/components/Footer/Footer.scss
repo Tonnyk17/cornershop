@@ -1,0 +1,16 @@
+@import '../../Variables/Variables.scss';
+
+.footer-container{
+    width: 100%;
+    height: 60px;
+    color: $white-20;
+    background-color: $black80;
+    text-align: center;
+    p{
+        font-size: 18px;
+        font-weight: 600;
+    }
+    a{
+        color: $main;
+    }
+}

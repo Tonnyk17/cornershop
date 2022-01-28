@@ -1,13 +1,14 @@
 import { FC } from "react";
+import '../../styles/components/Footer/Footer.css'
 
 export const Footer:FC = () => {
     return(
         <>
             <footer className="footer-container">
-                <h4 className="footer-text">
-                    Hecho con &#128156 por 
-                    <a href='https://tonnyk17.github.io/Portafolio/'>Tony</a>
-                </h4>
+                <p>
+                    Hecho con &#x1F49C por 
+                    <a href='https://tonnyk17.github.io/Portafolio/'> Tony</a>
+                </p>
             </footer>
         </>
     )

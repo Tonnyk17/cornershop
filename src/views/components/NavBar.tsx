@@ -1,7 +1,7 @@
 import { FC } from "react";
 import '../../styles/components/Navbar/Navbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useRoutes, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { faBars,faHome,faShoppingBag,faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
 export const NavBar:FC = () => {
@@ -9,7 +9,7 @@ export const NavBar:FC = () => {
     return(
         <>
             <header className="navbar-container">
-                <h2>Cornershop</h2>
+                <h2 onClick={() => history("home")}>Cornershop</h2>
                 <div className="navbar-list-container">
                     <input 
                         type="checkbox" 

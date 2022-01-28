@@ -1,0 +1,4 @@
+.children-container{
+    display: grid;
+    grid-template-rows: calc(100vh - 60px) 60px;
+}

@@ -22,6 +22,7 @@
     @include screen-min($tablet-size) {
         h2{
             font-size: 34px;
+            cursor: pointer;
         }
     }
 }
