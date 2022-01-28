@@ -20,7 +20,7 @@ export const NavBar:FC = () => {
                         <FontAwesomeIcon icon={faBars} size='2x'/>
                     </label>
                     <ul className="navbar-list">
-                        <li><FontAwesomeIcon icon={faHome} onClick={() => history("home")}/> Inicio </li>
+                        <li><FontAwesomeIcon icon={faHome} onClick={() => history("")}/> Inicio </li>
                         <li><FontAwesomeIcon icon={faShoppingBag} /> Productos</li>
                         <li><FontAwesomeIcon icon={faShoppingCart} /> Carrito</li>
                     </ul>

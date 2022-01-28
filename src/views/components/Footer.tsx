@@ -6,7 +6,7 @@ export const Footer:FC = () => {
         <>
             <footer className="footer-container">
                 <p>
-                    Hecho con &#x1F49C por 
+                    Hecho con 💙 por 
                     <a href='https://tonnyk17.github.io/Portafolio/'> Tony</a>
                 </p>
             </footer>

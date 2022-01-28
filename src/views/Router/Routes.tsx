@@ -10,7 +10,7 @@ export const Routes:FC = () => {
         <BrowserRouter>
         <Layout>
             <Switch>
-                <Route path='/home' element={<Home/>}/>
+                <Route path='/' element={<Home/>}/>
             </Switch>
         </Layout>
         </BrowserRouter>
