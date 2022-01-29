@@ -30,7 +30,7 @@ export const ProductCard:FC<ProductCardProps> = ({image}) => {
                         :
                         <div className='product-buttons-buy'>
                             <p>-</p>
-                            <input type="text" name="" id="" />
+                            <input type="number" name="" id="" />
                             <p>+</p>
                         </div>
                     }                
