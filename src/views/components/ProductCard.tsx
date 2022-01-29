@@ -1,18 +1,49 @@
-import {FC, useState} from 'react';
+import {FC, useContext, useEffect, useLayoutEffect, useReducer, useState} from 'react';
 import '../../styles/components/ProductCard/ProductCard.css';
 import { Button } from './Button';
 import basket from '../../assets/basket.jpg';
+import { ProductReducer } from '../../app/ProductReducer';
+import { initialState } from '../Router/Routes';
+import { IProducts } from '../../app/interfaces';
+import { AppContext } from '../../app/AppContext';
 
 type ProductCardProps = {
     image?: string;
-    productName: string;
-    price: string;
-    id:string;
-    stock: number;
+    data: IProducts,
 }
 
-export const ProductCard:FC<ProductCardProps> = ({image,productName,price,id,stock}) => {
+export const ProductCard:FC<ProductCardProps> = ({image,data}) => {
     const [isBuy, setIsBuy] = useState<boolean>(false);
+    const [stock, setStock] = useState(Number)
+    const [state, dispatch] = useReducer(ProductReducer, initialState);
+    const [productsCounter, setProductsCounter] = useState(Number);
+    const { shoppingCart } = useContext(AppContext);
+
+    const handleClick = () => {
+            data.stock -= productsCounter
+            data.cart = productsCounter
+            dispatch({type:'ADD_TO_CART', payload: data})
+           
+    }
+   const handleChange = (e:any) => {
+       if(e.target.value > data.stock){
+           alert('No hay stock suficiente');
+           e.target.value = data.stock
+           setProductsCounter(e.target.value)  
+       }
+       setProductsCounter(e.target.value)
+       console.log(state)
+       
+   }
+   useEffect(() => {
+    if(data.stock <= 0)
+    {
+        data.stock= 0
+        setIsBuy(true)
+    }
+   },[data, data.stock])
+    
+
     return(
         <>
             <div className="product-card-container">
@@ -20,26 +51,29 @@ export const ProductCard:FC<ProductCardProps> = ({image,productName,price,id,sto
                     <img src={basket} alt="" />
                 </div>
                 <div className="product-info-container">
-                   <h3>{productName}</h3>
-                   <h2>{price}</h2>
+                   <h3>{data.product}</h3>
+                   <h2>{data.price}</h2>
                    <div className="info-short">
-                       <p>Disponibles: {stock}</p>
-                       <p>Id: {id}</p>
+                       <p>Disponibles: {data.stock}</p>
+                       <p>Id: {data.id}</p>
                    </div>
                 </div>
-                <div className="product-button-container">
-                    {
-                        !isBuy ? 
-                        <Button content='Agregar 🛒' type='add' onClick={() => setIsBuy(true)}/> 
-                        :
-                        <div className='product-buttons-buy'>
-                            <p>-</p>
-                            <input type="number" name="" id="" />
-                            <p>+</p>
-                        </div>
-                    }                
-                </div>
+                {
+                    isBuy ? 
+                    <h1>AGOTADO</h1>
+                    :<div className="product-button-container">       
+                    <Button content='Agregar 🛒' type='add' onClick={handleClick}/> 
+                    <input 
+                            type="number" 
+                            name="" 
+                            id=""  
+                            onChange={handleChange}  
+                            placeholder='0'
+                        />                 
+                    </div>
+                }
             </div>
         </>
     )
+  
 }

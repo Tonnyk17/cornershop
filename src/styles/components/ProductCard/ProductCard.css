@@ -52,20 +52,14 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-.product-card-container .product-button-container .product-buttons-buy {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  grid-gap: 30px;
+  grid-gap: 20px;
   color: #874C62;
 }
 
-.product-card-container .product-button-container .product-buttons-buy input {
+.product-card-container .product-button-container input {
   border-radius: 100%;
   width: 40px;
   height: 40px;
@@ -81,26 +75,9 @@
           appearance: textfield;
 }
 
-.product-card-container .product-button-container .product-buttons-buy input[type=number]::-webkit-inner-spin-button,
-.product-card-container .product-button-container .product-buttons-buy input[type=number]::-webkit-outer-spin-button {
+.product-card-container .product-button-container input[type=number]::-webkit-inner-spin-button,
+.product-card-container .product-button-container input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
-}
-
-.product-card-container .product-button-container .product-buttons-buy p {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  line-height: 24px;
-  font-weight: bold;
-  font-size: 24px;
-  background-color: #ffffff;
-  border-radius: 100%;
-  cursor: pointer;
-}
-
-.product-card-container .product-button-container .product-buttons-buy p:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
 }
 
 .product-card-container:hover {

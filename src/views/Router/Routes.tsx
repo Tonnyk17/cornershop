@@ -11,18 +11,8 @@ import { Layout } from '../templates/Layout';
 
 
 export const initialState: IState = {
-    products: [{
-        id:'',
-        price:'',
-        product:'',
-        stock:0
-    }],
-    shoppingCart: [{
-        id:'',
-        price:'',
-        product:'',
-        stock:0
-    }]
+    products: [],
+    shoppingCart: []
 }
 
 export const Routes:FC = () => { 
@@ -41,7 +31,6 @@ export const Routes:FC = () => {
             handleError
         )
     },[])
-    console.log(state,'huhgugufg')
     return(
         <>
         <AppContext.Provider value={state}>

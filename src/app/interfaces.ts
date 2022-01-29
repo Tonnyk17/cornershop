@@ -1,4 +1,5 @@
 export interface IProducts {
+    cart: number;
     id: string;
     price: string;
     product: string;
@@ -10,6 +11,7 @@ export interface IShoppingCart {
     price: string;
     product: string;
     stock: number;
+    cart:number;
 }
 
 export interface IState {
