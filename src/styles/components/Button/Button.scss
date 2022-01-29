@@ -17,3 +17,14 @@
     background-color: $main;
     color: $white-20;
 }
+
+.add{
+    width: 50%;
+    background-color: $main;
+    color: $white-20;
+    margin: 10px 0;
+}
+
+.add:hover{
+    background-color: $main-80;
+}

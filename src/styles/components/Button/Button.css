@@ -17,4 +17,15 @@
   background-color: #0e9aa7;
   color: #f5f5f5;
 }
+
+.add {
+  width: 50%;
+  background-color: #0e9aa7;
+  color: #f5f5f5;
+  margin: 10px 0;
+}
+
+.add:hover {
+  background-color: rgba(14, 154, 167, 0.8);
+}
 /*# sourceMappingURL=Button.css.map */
