@@ -1,0 +1,10 @@
+
+.products-container{
+    width: 90%;
+    display: grid;
+    margin: 30px auto;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    grid-gap:30px;
+
+}

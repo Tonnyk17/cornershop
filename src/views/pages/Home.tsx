@@ -1,7 +1,7 @@
 import { FC, useEffect } from "react";
 import { Button } from "../components/Button";
 import '../../styles/pages/Home/Home.css';
-import { fetchProducts } from "../../app/get";
+import { fetchProducts } from "../../app/fetchProducts";
 
 export const Home:FC = () => {
     const handleFetch = (data: any) => {

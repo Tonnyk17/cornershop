@@ -1,0 +1,13 @@
+.products-container {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  margin: 30px auto;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-gap: 30px;
+}
+/*# sourceMappingURL=Products.css.map */

@@ -1,5 +1,3 @@
-
-
 export const fetchProducts = (handleFetch: any, handleError: any) => {
     
     const API : string | undefined = process.env.REACT_APP_API_URL
