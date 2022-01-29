@@ -5,9 +5,13 @@ import basket from '../../assets/basket.jpg';
 
 type ProductCardProps = {
     image?: string;
+    productName: string;
+    price: string;
+    id:string;
+    stock: number;
 }
 
-export const ProductCard:FC<ProductCardProps> = ({image}) => {
+export const ProductCard:FC<ProductCardProps> = ({image,productName,price,id,stock}) => {
     const [isBuy, setIsBuy] = useState<boolean>(false);
     return(
         <>
@@ -16,11 +20,11 @@ export const ProductCard:FC<ProductCardProps> = ({image}) => {
                     <img src={basket} alt="" />
                 </div>
                 <div className="product-info-container">
-                   <h3>Aqui va el nombre</h3>
-                   <h2>$10</h2>
+                   <h3>{productName}</h3>
+                   <h2>{price}</h2>
                    <div className="info-short">
-                       <p>Disponibles: 10</p>
-                       <p>id: 1009029039</p>
+                       <p>Disponibles: {stock}</p>
+                       <p>Id: {id}</p>
                    </div>
                 </div>
                 <div className="product-button-container">

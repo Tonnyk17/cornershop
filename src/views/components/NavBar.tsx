@@ -9,7 +9,7 @@ export const NavBar:FC = () => {
     return(
         <>
             <header className="navbar-container">
-                <h2 onClick={() => history("home")}>Cornershop</h2>
+                <h2 onClick={() => history("")}>Cornershop</h2>
                 <div className="navbar-list-container">
                     <input 
                         type="checkbox" 

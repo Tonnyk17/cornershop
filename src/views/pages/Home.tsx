@@ -1,21 +1,13 @@
-import { FC, useEffect } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 import { Button } from "../components/Button";
 import '../../styles/pages/Home/Home.css';
-import { fetchProducts } from "../../app/fetchProducts";
+import { useNavigate } from "react-router-dom";
+import { AppContext } from "../../app/AppContext";
+
 
 export const Home:FC = () => {
-    const handleFetch = (data: any) => {
-        console.log(data)
-    }
-    const handleError = (error: any) => {
-        console.log(error)
-    }
-    useEffect(() => {
-        fetchProducts(
-            handleFetch,
-            handleError
-        )
-    },[])
+   const history = useNavigate()
+  
     return(
         <>
             <div className="home-container">
@@ -23,7 +15,7 @@ export const Home:FC = () => {
                     <h1>Bienvenidos a Cornershop</h1>
                 </div>
                 <div className="button-container">
-                    <Button content="IR A COMPRAR" type="start"/>
+                    <Button content="IR A COMPRAR" type="start" onClick={() => history('productos')}/>
                 </div>
             </div>
         </>

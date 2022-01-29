@@ -1,18 +1,50 @@
-import {createContext, FC} from 'react';
+import {createContext, FC, useEffect, useReducer} from 'react';
 import { BrowserRouter, Route, Routes as Switch } from 'react-router-dom';
 import { AppContext } from '../../app/AppContext';
-import { useInitialState } from '../../app/state';
+import { fetchProducts } from '../../app/fetchProducts';
+import { IState } from '../../app/interfaces';
+import { ProductReducer } from '../../app/ProductReducer';
+
 import { Home } from '../pages/Home';
 import { Products } from '../pages/Products';
 import { Layout } from '../templates/Layout';
 
 
-export const Routes:FC = () => {
-    const initialState = useInitialState()
-    console.log(initialState)
+export const initialState: IState = {
+    products: [{
+        id:'',
+        price:'',
+        product:'',
+        stock:0
+    }],
+    shoppingCart: [{
+        id:'',
+        price:'',
+        product:'',
+        stock:0
+    }]
+}
+
+export const Routes:FC = () => { 
+    
+    const [state, dispatch] = useReducer(ProductReducer,initialState)
+    const handleFetch = (data: any) => {
+        dispatch({type:'GET_PRODUCTS',payload: data})
+    }
+    const handleError = (error: Error) => {
+        console.log(error);
+        
+    }
+    useEffect(() => {
+        fetchProducts(
+            handleFetch,
+            handleError
+        )
+    },[])
+    console.log(state,'huhgugufg')
     return(
         <>
-        <AppContext.Provider value={initialState}>
+        <AppContext.Provider value={state}>
             <BrowserRouter>
                 <Layout>
                     <Switch>

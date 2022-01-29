@@ -1,0 +1,43 @@
+[{
+    "id":"123",
+    "product":"Tofu",
+    "price":"$2.30",
+    "stock": 3
+},
+{
+    "id":"129",
+    "product":"sushi",
+    "price":"$2.90",
+    "stock": 7
+},
+{
+    "id":"128",
+    "product":"sushi",
+    "price":"$8.90",
+    "stock": 2
+},
+{
+    "id":"929",
+    "product":"sushi",
+    "price":"$6.90",
+    "stock": 0
+},
+{
+    "id":"1289",
+    "product":"sushi",
+    "price":"$2.90",
+    "stock": 3
+},
+{
+    "id":"1729",
+    "product":"sushi",
+    "price":"$2.70",
+    "stock": 5
+},
+{
+    "id":"1729",
+    "product":"sushi",
+    "price":"$2.60",
+    "stock": 8
+}
+]

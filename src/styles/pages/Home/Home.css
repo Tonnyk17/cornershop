@@ -1,6 +1,7 @@
 .home-container {
   width: 90%;
   margin: 0 auto;
+  height: calc(100vh - 120px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
