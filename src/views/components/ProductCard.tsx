@@ -12,16 +12,14 @@ type ProductCardProps = {
 
 export const ProductCard:FC<ProductCardProps> = ({image,data}) => {
     const [isBuy, setIsBuy] = useState<boolean>(false);
-    const [stock, setStock] = useState(Number)
     const context = useContext(ProductContext)
-    const [productsCounter, setProductsCounter] = useState(Number);
+    const [productsCounter, setProductsCounter] = useState<number>(0);
 
     const handleClick = () => {
         if(data.stock < productsCounter){
             alert('No hay stock suficiente');
-            setProductsCounter(data.stock)
         }
-        else if(productsCounter === 0){
+        else if(productsCounter <= 0){
             alert('No has elegido cuantas piezas agregar')
         }
         else{
@@ -31,17 +29,16 @@ export const ProductCard:FC<ProductCardProps> = ({image,data}) => {
                 cart: productsCounter
             })
         }
+
     }
    const handleChange = (e:any) => {
-       if(e.target.value > data.stock){
-           alert('No hay stock suficiente');
-           e.target.value = data.stock
-           setProductsCounter(e.target.value)  
+       if(e.target.value < 0){
+           e.target.value = 0
        }
        setProductsCounter(e.target.value)   
    }
 
-   
+
    useEffect(() => {
     if(data.stock <= 0)
     {
@@ -53,7 +50,7 @@ export const ProductCard:FC<ProductCardProps> = ({image,data}) => {
 
     return(
         <>
-            <div className="product-card-container">
+            <div className={`product-card-container ${isBuy ? 'product-out' : ''}`}>
                 <div className="product-image-container">
                     <img src={basket} alt="" />
                 </div>
@@ -68,12 +65,11 @@ export const ProductCard:FC<ProductCardProps> = ({image,data}) => {
                 {
                     isBuy ? 
                     <h1>AGOTADO</h1>
-                    :<div className="product-button-container">       
+                    :
+                    <div className="product-button-container">       
                     <Button content='Agregar 🛒' type='add' onClick={handleClick}/> 
                     <input 
                             type="number" 
-                            name="" 
-                            id=""  
                             onChange={handleChange}  
                             placeholder='0'
                         />                 

@@ -1,0 +1,14 @@
+.cart-container {
+  width: 100%;
+  margin: 30px auto;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 30px;
+}
+
+.cart-container .cart-message {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+/*# sourceMappingURL=ShoppingCart.css.map */

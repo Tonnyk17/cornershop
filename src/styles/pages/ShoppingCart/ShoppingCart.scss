@@ -1,0 +1,11 @@
+.cart-container{
+    width: 100%;
+    margin: 30px auto;
+    display: grid;
+    grid-gap: 30px;
+    .cart-message{
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
