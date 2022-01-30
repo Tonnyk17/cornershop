@@ -14,10 +14,13 @@ export const Products:FC = () => {
         console.log(error)
     }
    useEffect(() => {
-    fetchProducts(
-        handleFetch,
-        handleError
-    )
+    if(context?.products.length === 0){
+        fetchProducts(
+            handleFetch,
+            handleError
+        )
+    }
+     console.log(context)
    },[])
     return(
         <>

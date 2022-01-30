@@ -15,11 +15,9 @@ export const ShoppingCart:FC = () => {
                 context?.shoppingCart.map((item:any) => (
                     <div className="item-container">
                         <ShoppingCard
-                            product={item.data.product}
-                            price={item.data.price}
-                            id={item.data.id}
-                            amount={item.cart}
-                            stock={item.data.stock}
+                            data={item.data}
+                            cart={item.cart}
+                           
                         />
                     </div>
                 ))

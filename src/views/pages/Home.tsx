@@ -1,8 +1,8 @@
-import { FC, useContext, useEffect, useState } from "react";
+import { FC } from "react";
 import { Button } from "../components/Button";
 import '../../styles/pages/Home/Home.css';
 import { useNavigate } from "react-router-dom";
-
+import shop from '../../assets/shop.png'
 
 export const Home:FC = () => {
    const history = useNavigate()
@@ -10,6 +10,7 @@ export const Home:FC = () => {
     return(
         <>
             <div className="home-container">
+                <img src={shop} alt="" />
                 <div className="title-container">
                     <h1>Bienvenidos a Cornershop</h1>
                 </div>

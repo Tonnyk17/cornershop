@@ -1,4 +1,4 @@
-import {FC, useContext, useEffect, useLayoutEffect, useReducer, useState} from 'react';
+import {FC, useContext, useEffect, useState} from 'react';
 import '../../styles/components/ProductCard/ProductCard.css';
 import { Button } from './Button';
 import basket from '../../assets/basket.jpg';
@@ -6,9 +6,12 @@ import { IProducts } from '../../app/interfaces';
 import { ProductContext } from '../../app/Context';
 
 type ProductCardProps = {
+    
     image?: string;
     data: IProducts,
 }
+
+//TODO implement api search images
 
 export const ProductCard:FC<ProductCardProps> = ({image,data}) => {
     const [isBuy, setIsBuy] = useState<boolean>(false);

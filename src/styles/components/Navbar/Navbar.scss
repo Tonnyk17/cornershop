@@ -80,9 +80,9 @@
       font-size: 10px;
       line-height: 20px;
       text-align: center;
-      background-color: black;
+      background-color: $black50;
       border-radius: 100%;
-  }
+  } 
   @include screen-min($tablet-size){
       position: initial;
       display: flex;
@@ -95,7 +95,11 @@
       }
       li:hover{
           cursor: pointer;
-          color: $black50;
+          color: $black80;
+
+          span{
+              color: $main;
+          }
       }
   }
 }
