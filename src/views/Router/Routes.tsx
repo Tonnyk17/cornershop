@@ -1,48 +1,30 @@
-import {createContext, FC, useEffect, useReducer} from 'react';
+import {FC} from 'react';
 import { BrowserRouter, Route, Routes as Switch } from 'react-router-dom';
-import { AppContext } from '../../app/AppContext';
-import { fetchProducts } from '../../app/fetchProducts';
-import { IState } from '../../app/interfaces';
-import { ProductReducer } from '../../app/ProductReducer';
+import { ProductsProvider } from '../../app/Context';
+
 
 import { Home } from '../pages/Home';
 import { Products } from '../pages/Products';
+import { ShoppingCart } from '../pages/ShoppingCart';
 import { Layout } from '../templates/Layout';
 
-
-export const initialState: IState = {
-    products: [],
-    shoppingCart: []
-}
-
 export const Routes:FC = () => { 
-    
-    const [state, dispatch] = useReducer(ProductReducer,initialState)
-    const handleFetch = (data: any) => {
-        dispatch({type:'GET_PRODUCTS',payload: data})
-    }
-    const handleError = (error: Error) => {
-        console.log(error);
-        
-    }
-    useEffect(() => {
-        fetchProducts(
-            handleFetch,
-            handleError
-        )
-    },[])
+   
     return(
         <>
-        <AppContext.Provider value={state}>
+        
             <BrowserRouter>
-                <Layout>
-                    <Switch>
-                        <Route path='/' element={<Home/>}/>
-                        <Route path='/productos' element={<Products/>}/>
-                    </Switch>
-                </Layout>
+                <ProductsProvider>
+                    <Layout>
+                        <Switch>
+                            <Route path='/' element={<Home/>}/>
+                            <Route path='/productos' element={<Products/>}/>
+                            <Route path='/carrito-de-compras' element={<ShoppingCart/>}/>
+                        </Switch>
+                    </Layout>
+                </ProductsProvider>
             </BrowserRouter>
-        </AppContext.Provider>
+        
         </>
     )
 }

@@ -74,6 +74,15 @@
     grid-gap: 3px;
     font-weight: $semi-bold;
   }
+  span{
+      width: 20px;
+      height: 20px;
+      font-size: 10px;
+      line-height: 20px;
+      text-align: center;
+      background-color: black;
+      border-radius: 100%;
+  }
   @include screen-min($tablet-size){
       position: initial;
       display: flex;

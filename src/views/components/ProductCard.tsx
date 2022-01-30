@@ -2,10 +2,8 @@ import {FC, useContext, useEffect, useLayoutEffect, useReducer, useState} from '
 import '../../styles/components/ProductCard/ProductCard.css';
 import { Button } from './Button';
 import basket from '../../assets/basket.jpg';
-import { ProductReducer } from '../../app/ProductReducer';
-import { initialState } from '../Router/Routes';
 import { IProducts } from '../../app/interfaces';
-import { AppContext } from '../../app/AppContext';
+import { ProductContext } from '../../app/Context';
 
 type ProductCardProps = {
     image?: string;
@@ -15,15 +13,24 @@ type ProductCardProps = {
 export const ProductCard:FC<ProductCardProps> = ({image,data}) => {
     const [isBuy, setIsBuy] = useState<boolean>(false);
     const [stock, setStock] = useState(Number)
-    const [state, dispatch] = useReducer(ProductReducer, initialState);
+    const context = useContext(ProductContext)
     const [productsCounter, setProductsCounter] = useState(Number);
-    const { shoppingCart } = useContext(AppContext);
 
     const handleClick = () => {
+        if(data.stock < productsCounter){
+            alert('No hay stock suficiente');
+            setProductsCounter(data.stock)
+        }
+        else if(productsCounter === 0){
+            alert('No has elegido cuantas piezas agregar')
+        }
+        else{
             data.stock -= productsCounter
-            data.cart = productsCounter
-            dispatch({type:'ADD_TO_CART', payload: data})
-           
+            context?.addCart({
+                data,
+                cart: productsCounter
+            })
+        }
     }
    const handleChange = (e:any) => {
        if(e.target.value > data.stock){
@@ -31,10 +38,10 @@ export const ProductCard:FC<ProductCardProps> = ({image,data}) => {
            e.target.value = data.stock
            setProductsCounter(e.target.value)  
        }
-       setProductsCounter(e.target.value)
-       console.log(state)
-       
+       setProductsCounter(e.target.value)   
    }
+
+   
    useEffect(() => {
     if(data.stock <= 0)
     {

@@ -1,5 +1,4 @@
 export interface IProducts {
-    cart: number;
     id: string;
     price: string;
     product: string;
@@ -17,4 +16,5 @@ export interface IShoppingCart {
 export interface IState {
     products: IProducts[]
     shoppingCart: IShoppingCart[]
+    
 } 

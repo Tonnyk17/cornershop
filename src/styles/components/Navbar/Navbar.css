@@ -88,6 +88,16 @@
   font-weight: 600;
 }
 
+.navbar-list span {
+  width: 20px;
+  height: 20px;
+  font-size: 10px;
+  line-height: 20px;
+  text-align: center;
+  background-color: black;
+  border-radius: 100%;
+}
+
 @media screen and (min-width: 750px) {
   .navbar-list {
     position: initial;

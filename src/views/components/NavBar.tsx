@@ -1,11 +1,13 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import '../../styles/components/Navbar/Navbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useNavigate } from "react-router-dom";
 import { faBars,faHome,faShoppingBag,faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { ProductContext } from "../../app/Context";
 
 export const NavBar:FC = () => {
     const history = useNavigate();
+    const context = useContext(ProductContext);
     return(
         <>
             <header className="navbar-container">
@@ -26,8 +28,9 @@ export const NavBar:FC = () => {
                         <li onClick={() => history("productos")}>
                             <FontAwesomeIcon icon={faShoppingBag} /> Productos
                         </li>
-                        <li>
+                        <li onClick={() => history("carrito-de-compras")}>
                             <FontAwesomeIcon icon={faShoppingCart} /> Carrito
+                            <span>{context?.shoppingCart.length}</span>
                         </li>
                     </ul>
                 </div>

@@ -2,12 +2,11 @@ import { FC, useContext, useEffect, useState } from "react";
 import { Button } from "../components/Button";
 import '../../styles/pages/Home/Home.css';
 import { useNavigate } from "react-router-dom";
-import { AppContext } from "../../app/AppContext";
 
 
 export const Home:FC = () => {
    const history = useNavigate()
-  
+
     return(
         <>
             <div className="home-container">
